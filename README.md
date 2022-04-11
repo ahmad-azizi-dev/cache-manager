@@ -45,6 +45,6 @@ Time: 00:00.062, Memory: 6.00 MB
 OK (19 tests, 37 assertions)
 
 ```
-### For SSH into the app running container use this command:
+### For SSH into the running app container use this command:
 
 `make ssh_container`
