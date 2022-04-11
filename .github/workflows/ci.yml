@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out code 🛎
+        uses: actions/checkout@v2
+
+        # using docker-compose (see docker-compose.yml file)
+      - name: Run composer install
+        run: docker-compose run --rm app composer install
+
+      - name: Run tests
+        run: docker-compose run --rm app ./vendor/bin/phpunit
+
+      - name: Run sample
+        run: docker-compose run --rm app php index.php
